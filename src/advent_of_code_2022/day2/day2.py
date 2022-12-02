@@ -11,11 +11,14 @@ class RockPaperScissor(IntEnum):
     Y=2
     Z=3
 
-def is_won(a,b):
+def next_value(a):
     next_value = a + 1
     if next_value == 4:
         next_value = 1
-    return next_value == b
+    return next_value
+
+def is_won(a,b):
+    return next_value(a) == b
 
 def is_draft(a,b):
     return a == b
@@ -37,29 +40,29 @@ def parse_input(lines):
     return guide
 
 def solve1(input):
-    points1 = 0
     points2 = 0
     guide = parse_input(input)
-    #print(guide)
     for party in guide:
         [a,b] =party
-        #print(party)
         if is_won(a, b):
             points2 += 6
-            #print(6)
         elif is_draft(a,b):
-            points1 += 3
             points2 += 3
-            #print(3)
-        else:
-            points1 += 6
-            #print(0)
-        points1 += a
         points2 += b
-        #print(int(b))
     return points2
 
 def solve2(input):
-    return 0
+    points2 = 0
+    guide = parse_input(input)
+    for party in guide:
+        [a,b] =party
+        if b == RockPaperScissor.Z:
+            points2 += 6 + next_value(a)
+        elif b == RockPaperScissor.Y:
+            points2 += 3 + a
+        else:
+            points2 += next_value(next_value(a))
+    return points2
+
    
     

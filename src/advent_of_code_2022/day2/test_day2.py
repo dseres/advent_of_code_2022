@@ -10,7 +10,7 @@ class TestDay2(unittest.TestCase):
 B X
 C Z""".splitlines(keepends=False)
         self.assertEqual( day.solve1(test_input), 15)
-        self.assertEqual( day.solve2(test_input), 0)
+        self.assertEqual( day.solve2(test_input), 12)
 
 if __name__ == '__main__':
     unittest.main()
