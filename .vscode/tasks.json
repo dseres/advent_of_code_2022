@@ -14,9 +14,9 @@
             }
         },
         {
-            "label": "run day2 test",
+            "label": "run day3 test",
             "type": "shell",
-            "command": "python src/advent_of_code_2022/day2/test_day2.py",
+            "command": "python src/advent_of_code_2022/day3/test_day3.py",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
