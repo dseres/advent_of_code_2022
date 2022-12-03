@@ -1,6 +1,6 @@
 def read_input_lines():
     file = open("input/input3.txt")
-    return map(lambda line: line.strip(), file.readlines())
+    return list(map(lambda line: line.strip(), file.readlines()))
 
 
 def get_priority(c):
@@ -24,8 +24,15 @@ def get_priority_for_line(str):
             if c1 == c2:
                 return get_priority(c1)
 
+def get_badge(str1, str2, str3):
+    for c1 in str1:
+        for c2 in str2:
+            for c3 in str3:
+                if c1 == c2 == c3:
+                    return get_priority(c1)
+
 def solve1(lines):
     return sum( map( lambda line: get_priority_for_line(line), lines))
 
-def solve2(input):
-    return 0
+def solve2(lines):
+    return sum( [ get_badge(lines[i], lines[i+1], lines[i+2]) for i in range(0,len(lines),3)]) 

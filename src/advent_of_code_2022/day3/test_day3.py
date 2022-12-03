@@ -24,7 +24,7 @@ wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
 ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw""".splitlines(keepends=False)
         self.assertEqual( day.solve1(test_input), 157)
-        self.assertEqual( day.solve2(test_input), 0)
+        self.assertEqual( day.solve2(test_input), 70)
 
 if __name__ == '__main__':
     unittest.main()

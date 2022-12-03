@@ -8,5 +8,5 @@ if __name__ == '__main__' :
     # input = day2.read_input_lines()
     # print('Solution for day2: {} and {}'.format(day2.solve1(input), day2.solve2(input)))
     input = day3.read_input_lines()
-    print('Solution for day3: {} and {}'.format(day3.solve1(input), day3.solve2(input)))
+    print('Solution for day3: {} and {}'.format( day3.solve1(input),  day3.solve2(input)))
     pass
