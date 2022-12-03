@@ -1,6 +1,6 @@
 def read_input_lines():
     file = open("input/input3.txt")
-    return list(map(lambda line: line.strip(), file.readlines()))
+    return file.read().splitlines()
 
 
 def get_priority(c):

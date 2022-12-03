@@ -16,7 +16,7 @@
         {
             "label": "run day3 test",
             "type": "shell",
-            "command": "python src/advent_of_code_2022/day3/test_day3.py",
+            "command": "python src/advent_of_code_2022/day3/test_day.py",
             "problemMatcher": [],
             "group": {
                 "kind": "build",

@@ -1,6 +1,6 @@
 import day1.day1 as day1
 import day2.day2 as day2
-import day3.day3 as day3
+import day3.day as day3
 
 if __name__ == '__main__' :
     # input = day1.read_input_lines()
