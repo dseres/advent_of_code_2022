@@ -6,7 +6,7 @@
         {
             "label": "run",
             "type": "shell",
-            "command": "python src/advent_of_code_2022/main.py",
+            "command": "python src/main.py",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
@@ -14,9 +14,9 @@
             }
         },
         {
-            "label": "run day3 test",
+            "label": "run day4 test",
             "type": "shell",
-            "command": "python src/advent_of_code_2022/day3/test_day.py",
+            "command": "python src/day4/test_day.py",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
