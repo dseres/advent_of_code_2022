@@ -14,9 +14,9 @@
             }
         },
         {
-            "label": "run day4 test",
+            "label": "run day5 test",
             "type": "shell",
-            "command": "python src/day4/test_day.py",
+            "command": "python src/day5/test_day.py",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
