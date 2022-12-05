@@ -25,19 +25,19 @@ class Stacks:
         for line in input.splitlines():
             if len(line)>0:
                 if stack_pattern.match(line):
-                    groups = [ line[i:i+3].strip() for i in range(0,len(line),4)]
-                    if not self.stacks:
-                        self.stacks = [ [] for i in range(len(groups))]
-                    for i,v in enumerate(groups):
-                        if len(v)==3:
-                            self.stacks[i].insert(0,v[1])
+                    self.add_stack_values(line)
                 else: 
                     match = instruction_pattern.findall(line)
                     if match:
                         self.instructions.append( Instruction(*[int(v) for v in match[0]]))
-        print(self.stacks)
-        print(self.instructions)
             
+    def add_stack_values(self,line:str):
+        groups = [ line[i:i+3].strip() for i in range(0,len(line),4)]
+        if not self.stacks:
+            self.stacks = [ [] for i in range(len(groups))]
+        for i,v in enumerate(groups):
+            if len(v)==3:
+                self.stacks[i].insert(0,v[1])
 
 def read_input():
     file = open("input/input5.txt")
