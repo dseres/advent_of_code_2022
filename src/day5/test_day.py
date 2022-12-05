@@ -19,8 +19,8 @@ move 1 from 1 to 2"""
         self.assertEqual( stacks.stacks, [['Z','N'],['M','C','D'],['P']])
         self.assertEqual( stacks.instructions, [ day.Instruction(1,2,1), day.Instruction(3,1,3), day.Instruction(2,2,1), day.Instruction(1,1,2)])
 
-        self.assertEqual( day.solve1(stacks), 0)
-        self.assertEqual( day.solve2(stacks), 0)
+        self.assertEqual( stacks.solve1(), 'CMZ')
+        self.assertEqual( stacks.solve2(), 'MCD')
 
 if __name__ == '__main__':
     unittest.main()

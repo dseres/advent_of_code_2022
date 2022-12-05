@@ -11,6 +11,6 @@ if __name__ == '__main__' :
     # print('Solution for day2: {} and {}'.format(day2.solve1(input), day2.solve2(input)))
     # input = day3.read_input_lines()
     # print('Solution for day3: {} and {}'.format( day3.solve1(input),  day3.solve2(input)))
-    input = day5.parse_input(day5.read_input())
-    print('Solution for day5: {} and {}'.format( day5.solve1(input),  day5.solve2(input)))
+    stack = day5.Stacks(day5.read_input())
+    print('Solution for day5: {} and {}'.format( stack.solve1(),  stack.solve2()))
     pass
