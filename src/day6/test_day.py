@@ -12,7 +12,11 @@ class TestDay(unittest.TestCase):
         self.assertEqual( day.solve1('nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg'), 10)
         self.assertEqual( day.solve1('zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw'), 11)
 
-        self.assertEqual( day.solve2('mjqjpqmgbljsphdztnvjfqwrcgsmlb'), 0)
+        self.assertEqual( day.solve2('mjqjpqmgbljsphdztnvjfqwrcgsmlb'), 19)
+        self.assertEqual( day.solve2('bvwbjplbgvbhsrlpgdmjqwftvncz'), 23)
+        self.assertEqual( day.solve2('nppdvjthqldpwncqszvftbrmjlhg'), 23)
+        self.assertEqual( day.solve2('nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg'), 29)
+        self.assertEqual( day.solve2('zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw'), 26)
 
 if __name__ == '__main__':
     unittest.main()
