@@ -56,7 +56,7 @@ class Dir:
         return root
 
     def solve1(self):
-        return 0
+        return 
 
     def solve2(self):
         return 0
