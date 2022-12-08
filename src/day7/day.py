@@ -18,7 +18,6 @@ class Dir:
     def parse(cls, input: str):
         root = Dir('/')
         cd_pattern = re.compile('^\$ cd (/|\.\.|[\w|.]+)$')
-        ls_pattern = re.compile('^\$ ls$')
         dir_pattern = re.compile('^dir ([\w|.]+)$')
         file_pattern = re.compile('^(\d+) ([\w|.]+)$')
         current_dir = root
@@ -36,23 +35,18 @@ class Dir:
                         current_dir = next(filter( (lambda d: d.name == to_dir), current_dir.dirs))
                     #print('current_dir: ',vars(current_dir))
                 else:
-                    if ls_pattern.match(line):
-                        pass
+                    match = dir_pattern.search(line)
+                    if match:
+                        dir_name = match.groups()[0]
+                        #print('found child dir: ',dir_name)
+                        child_dir = Dir(dir_name, current_dir)
+                        current_dir.dirs.append(child_dir)
                     else:
-                        match = dir_pattern.search(line)
+                        match = file_pattern.search(line)
                         if match:
-                            dir_name = match.groups()[0]
-                            #print('found child dir: ',dir_name)
-                            child_dir = Dir(dir_name, current_dir)
-                            current_dir.dirs.append(child_dir)
-                        else:
-                            match = file_pattern.search(line)
-                            if match:
-                                [size,fname] = match.groups()
-                                #print('found file : ', int(size),fname)
-                                current_dir.files.append(File(int(size), fname))
-                            else:
-                                assert(False)
+                            [size,fname] = match.groups()
+                            #print('found file : ', int(size),fname)
+                            current_dir.files.append(File(int(size), fname))
         return root
 
     def calculate_sizes(self):
@@ -85,29 +79,15 @@ class Dir:
                 name = child_name
         return (min,name)
 
-    def list_dirs(self):
-        dirs = [self]
-        for dir in self.dirs:
-            dirs += dir.list_dirs()
-        return dirs
-
-    def find_dir2_v2(self):
-        dirs = self.list_dirs()
-        dirs.sort( key = lambda dir : dir.size)
-        print([(dir.name, dir.size) for dir in dirs])
-
     def solve1(self):
         self.calculate_sizes()
         return self.sum1()
 
     def solve2(self):
-        self.find_dir2_v2()
         total_disk_space = 70000000
         unused_disk_space_needed = 30000000
         needed = unused_disk_space_needed - (total_disk_space - self.size)
-        print(self.size, needed)
         (min,name) = self.find_dir2(needed)
-        # print(min,name)
         return min
 
 
