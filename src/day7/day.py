@@ -1,5 +1,3 @@
-import re
-
 class File:
     def __init__(self, size, name):
         self.size : int = size
@@ -17,36 +15,19 @@ class Dir:
     @classmethod
     def parse(cls, input: str):
         root = Dir('/')
-        cd_pattern = re.compile('^\$ cd (/|\.\.|[\w|.]+)$')
-        dir_pattern = re.compile('^dir ([\w|.]+)$')
-        file_pattern = re.compile('^(\d+) ([\w|.]+)$')
-        current_dir = root
-        for line in input.splitlines():
+        for line in input.splitlines():            
             if len(line) > 0:
-                match = cd_pattern.search(line)
-                if match:
-                    to_dir = match.groups()[0]
-                    #print('to_dir: ', to_dir)
-                    if to_dir == '/':
+                match line.split():
+                    case ['$', 'cd', '/']:
                         current_dir = root
-                    elif to_dir == '..':
+                    case ['$', 'cd', '..']:
                         current_dir = current_dir.parent
-                    else:
+                    case ['$', 'cd', to_dir]:
                         current_dir = next(filter( (lambda d: d.name == to_dir), current_dir.dirs))
-                    #print('current_dir: ',vars(current_dir))
-                else:
-                    match = dir_pattern.search(line)
-                    if match:
-                        dir_name = match.groups()[0]
-                        #print('found child dir: ',dir_name)
-                        child_dir = Dir(dir_name, current_dir)
-                        current_dir.dirs.append(child_dir)
-                    else:
-                        match = file_pattern.search(line)
-                        if match:
-                            [size,fname] = match.groups()
-                            #print('found file : ', int(size),fname)
-                            current_dir.files.append(File(int(size), fname))
+                    case ['dir', dir_name]:
+                        current_dir.dirs.append(Dir(dir_name, current_dir))
+                    case [size,fname] if size.isdigit():
+                        current_dir.files.append(File(int(size), fname))
         return root
 
     def calculate_sizes(self):
