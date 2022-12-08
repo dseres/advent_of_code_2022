@@ -5,6 +5,7 @@ import day4.day as day4
 import day5.day as day5
 import day6.day as day6
 import day7.day as day7
+import day8.day as day8
 
 if __name__ == '__main__' :
     # input = day1.read_input_lines()
@@ -17,5 +18,8 @@ if __name__ == '__main__' :
     # print('Solution for day4: {} and {}'.format( day4.solve1(input),  day4.solve2(input)))
     # stack = day5.Stacks(day5.read_input())
     # print('Solution for day5: {} and {}'.format( stack.solve1(),  stack.solve2()))
-    root = day7.Dir.parse(day7.read_input())
-    print('Solution for day7: {} and {}'.format( root.solve1(),  root.solve2()))
+    # root = day7.Dir.parse(day7.read_input())
+    # print('Solution for day7: {} and {}'.format( root.solve1(),  root.solve2()))
+    forest = day8.Forest(day8.read_input())
+    print('Solution for day8: {} and {}'.format( forest.solve1(),  forest.solve2()))
+    pass
