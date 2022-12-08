@@ -19,4 +19,3 @@ if __name__ == '__main__' :
     # print('Solution for day5: {} and {}'.format( stack.solve1(),  stack.solve2()))
     root = day7.Dir.parse(day7.read_input())
     print('Solution for day7: {} and {}'.format( root.solve1(),  root.solve2()))
-    pass

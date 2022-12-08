@@ -35,7 +35,7 @@ $ ls
         self.assertEqual(dirs.size, 48381165)
 
         self.assertEqual( dirs.solve1(), 95437)
-        self.assertEqual( dirs.solve2(), 'd')
+        self.assertEqual( dirs.solve2(), 24933642)
 
 if __name__ == '__main__':
     unittest.main()

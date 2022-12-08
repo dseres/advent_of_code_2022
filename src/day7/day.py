@@ -78,27 +78,40 @@ class Dir:
         if needed <= self.size:
             min = self.size
             name = self.name
-        for child in self.dirs:
-            (child_min, child_name) = child.find_dir2(needed)
+        for dir in self.dirs:
+            (child_min, child_name) = dir.find_dir2(needed)
             if min is None or child_min is not None and needed <= child_min < min:
                 min = child_min
                 name = child_name
         return (min,name)
+
+    def list_dirs(self):
+        dirs = [self]
+        for dir in self.dirs:
+            dirs += dir.list_dirs()
+        return dirs
+
+    def find_dir2_v2(self):
+        dirs = self.list_dirs()
+        dirs.sort( key = lambda dir : dir.size)
+        print([(dir.name, dir.size) for dir in dirs])
 
     def solve1(self):
         self.calculate_sizes()
         return self.sum1()
 
     def solve2(self):
+        self.find_dir2_v2()
         total_disk_space = 70000000
         unused_disk_space_needed = 30000000
         needed = unused_disk_space_needed - (total_disk_space - self.size)
         print(self.size, needed)
         (min,name) = self.find_dir2(needed)
         # print(min,name)
-        return name
+        return min
 
 
 def read_input():
-    file = open("input/input7.txt")
-    return file.read()
+    with open("input/input7.txt") as file:
+        return file.read()
+
