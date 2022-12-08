@@ -31,8 +31,11 @@ $ ls
 """
         dirs = day.Dir.parse(input)
 
-        self.assertEqual( dirs.solve1(), 0)
-        self.assertEqual( dirs.solve2(), 0)
+        dirs.calculate_sizes()
+        self.assertEqual(dirs.size, 48381165)
+
+        self.assertEqual( dirs.solve1(), 95437)
+        self.assertEqual( dirs.solve2(), 'd')
 
 if __name__ == '__main__':
     unittest.main()
