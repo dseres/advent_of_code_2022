@@ -15,8 +15,18 @@ L 5
 R 2
 """
     
-        self.assertEqual( day.solve1(input), 0)
-        self.assertEqual( day.solve2(input), 0)
+        self.assertEqual( day.solve1(input), 13)
+
+        input2 = """R 5
+U 8
+L 8
+D 3
+R 17
+D 10
+L 25
+U 20
+"""
+        self.assertEqual( day.solve2(input2), 36)
 
 if __name__ == '__main__':
     unittest.main()

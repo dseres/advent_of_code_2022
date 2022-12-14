@@ -2,3 +2,5 @@ image: python:3
 vscode:
   extensions:
     - "ms-python.python"
+tasks:
+  - before: "/usr/local/bin/python -m pip install -U autopep8"
