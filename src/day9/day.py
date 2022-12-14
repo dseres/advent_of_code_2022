@@ -19,14 +19,13 @@ class Fiber:
                 self.move_to_direction((1, 0), int(count))
 
     def move_to_direction(self, direction: (int, int), count: int):
-        # print(direction, count)
         for i in range(count):
             self.step_to_direction(direction)
-            # print(self.parts)
 
     def step_to_direction(self, direction: (int, int)):
-        self.parts[0] = (self.parts[0][0] + direction[0],
-                         self.parts[0][1] + direction[1])
+        head = self.parts[0]
+        self.parts[0] = (head[0] + direction[0],
+                         head[1] + direction[1])
         for i in range(len(self.parts)-1):
             self.step_part_to_direction(i, direction)
             # save last part position
@@ -35,10 +34,10 @@ class Fiber:
     def step_part_to_direction(self, index: int, direction: (int, int)):
         prev = self.parts[index]
         current = self.parts[index+1]
-        if ( abs(prev[0] - current[0]) > 1 or abs(prev[1] - current[1]) > 1):
+        if (abs(prev[0] - current[0]) > 1 or abs(prev[1] - current[1]) > 1):
             dist_x = self.sign(prev[0] - current[0])
             dist_y = self.sign(prev[1] - current[1])
-            self.parts[index+1] = ( current[0] + dist_x, current[1] + dist_y)
+            self.parts[index+1] = (current[0] + dist_x, current[1] + dist_y)
 
     def sign(self, v):
         if v < 0:
