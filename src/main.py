@@ -42,7 +42,7 @@ if __name__ == '__main__' :
     # input = day9.read_input()
     # print('Solution for day9: {} and {}'.format( day9.solve1(input),  day9.solve2(input)))
     input = day10.read_input()
-    print('Solution for day10: {} and {}'.format( day10.solve1(input),  day10.solve2(input)))
+    print("Solution for day10: {} and\n{}".format( day10.solve1(input),  day10.solve2(input)))
     # input = day11.read_input()
     # print('Solution for day11: {} and {}'.format( day11.solve1(input),  day11.solve2(input)))
     # input = day12.read_input()
