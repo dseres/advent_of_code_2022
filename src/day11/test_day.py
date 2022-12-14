@@ -35,7 +35,7 @@ Monkey 3:
 
 """
     
-        self.assertEqual( day.solve1(input), 0)
+        self.assertEqual( day.solve1(input), 10605)
         self.assertEqual( day.solve2(input), 0)
 
 if __name__ == '__main__':
