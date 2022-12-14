@@ -7,6 +7,7 @@ import day6.day as day6
 import day7.day as day7
 import day8.day as day8
 import day9.day as day9
+import day10.day as day10
 
 if __name__ == '__main__' :
     # input = day1.read_input_lines()
@@ -23,6 +24,8 @@ if __name__ == '__main__' :
     # print('Solution for day7: {} and {}'.format( root.solve1(),  root.solve2()))
     # forest = day8.Forest(day8.read_input())
     # print('Solution for day8: {} and {}'.format( forest.solve1(),  forest.solve2()))
-    input = day9.read_input()
-    print('Solution for day9: {} and {}'.format( day9.solve1(input),  day9.solve2(input)))
+    # input = day9.read_input()
+    # print('Solution for day9: {} and {}'.format( day9.solve1(input),  day9.solve2(input)))
+    input = day10.read_input()
+    print('Solution for day10: {} and {}'.format( day10.solve1(input),  day10.solve2(input)))
     pass
