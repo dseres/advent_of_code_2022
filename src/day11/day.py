@@ -47,11 +47,12 @@ class Monkey:
     def __str__(self):
         return "Monkey(id=%d, items=[%s], %s, divisor=%d, monkey_true=%d, monkey_false=%d, counter=%d" % (self.id, ", ".join([str(i) for i in self.items]), inspect.getsource(self.operation).strip(), self.divisor, self.monkey_true, self.monkey_false, self.counter)
 
-    def take_turn(self):
+    def take_turn(self, divide_by_3):
         result = []
         for item in self.items:
             item = self.operation(item)
-            item = item // 3
+            if divide_by_3:
+                item = item // 3
             if item % self.divisor == 0:
                 result.append((self.monkey_true, item))
             else:
@@ -73,9 +74,9 @@ class Game:
             print(m)
             self.monkeys.append(m)
 
-    def take_turn(self):
+    def take_turn(self, divide_by_3=True):
         for monkey in self.monkeys:
-            passing = monkey.take_turn()
+            passing = monkey.take_turn(divide_by_3)
             for (m, item) in passing:
                 self.monkeys[m].items.append(item)
 
@@ -84,9 +85,22 @@ class Game:
             self.take_turn()
         for m in self.monkeys:
             print(m)
-        counters = [ m.counter for m in self.monkeys]
+        counters = [m.counter for m in self.monkeys]
         counters.sort(reverse=True)
         return counters[0] * counters[1]
+
+    def solve2(self):
+        for i in range(10000):
+            if i % 100 == 0:
+                print(i)
+            self.take_turn(divide_by_3=False)
+            for m in self.monkeys:
+                print(m)
+            print("\n")
+        counters = [m.counter for m in self.monkeys]
+        counters.sort(reverse=True)
+        return counters[0] * counters[1]
+
 
 def solve1(input):
     game = Game()
@@ -95,7 +109,9 @@ def solve1(input):
 
 
 def solve2(input):
-    return 0
+    game = Game()
+    game.parse(input)
+    return game.solve2()
 
 
 def read_input():
