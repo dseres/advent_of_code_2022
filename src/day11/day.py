@@ -29,14 +29,7 @@ class Monkey:
         m = self.items_re.match(lines[1])
         self.items = [int(v) for v in m.group(1).split(', ')]
 
-        m = self.operation_re.match(lines[2])
-        match m.group(1).split():
-            case ["new", "=", "old", "+", n]:
-                self.operation = lambda x: x + int(n)
-            case ["new", "=", "old", "*", "old"]:
-                self.operation = lambda x: x * x
-            case ["new", "=", "old", "*", n]:
-                self.operation = lambda x: x * int(n)
+        self.parse_operation(lines[2])
 
         m = self.test_re.match(lines[3])
         self.divisor = int(m.group(1))
@@ -47,23 +40,34 @@ class Monkey:
         m = self.if_false_re.match(lines[5])
         self.monkey_false = int(m.group(1))
 
+    def parse_operation(self, line):
+        m = self.operation_re.match(line)
+        match m.group(1).split():
+            case ["new", "=", "old", "+", n]:
+                self.operation = lambda x: x + int(n)
+            case ["new", "=", "old", "*", "old"]:
+                self.operation = lambda x: x * x
+            case ["new", "=", "old", "*", n]:
+                self.operation = lambda x: x * int(n)        
+
     def __str__(self):
         return "Monkey(id=%d, items=[%s], %s, divisor=%d, monkey_true=%d, monkey_false=%d, counter=%d" % (self.id, ", ".join([str(i) for i in self.items]), inspect.getsource(self.operation).strip(), self.divisor, self.monkey_true, self.monkey_false, self.counter)
 
     def take_turn(self, divide_by_3 ):
-        result = []
-        for item in self.items:
-            item = self.operation(item)
-            if divide_by_3:
-                item = item // 3
-            item = item % self.modulo_factor
-            if item % self.divisor == 0:
-                result.append((self.monkey_true, item))
-            else:
-                result.append((self.monkey_false, item))
+        result = [ self.compute_item(item, divide_by_3) for item in self.items]
         self.counter += len(self.items)
         self.items = []
         return result
+
+    def compute_item(self, item, divide_by_3):
+        item = self.operation(item)
+        if divide_by_3:
+            item = item // 3
+        item = item % self.modulo_factor
+        if item % self.divisor == 0:
+            return (self.monkey_true, item)
+        else:
+            return (self.monkey_false, item)
 
 class Game:
     def __init__(self):
