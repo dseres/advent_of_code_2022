@@ -5,7 +5,11 @@ import day
 class TestDay(unittest.TestCase):
 
     def test_day(self):
-        input = """
+        input = """Sabqponm
+abcryxxl
+accszExk
+acctuvwj
+abdefghi
 """
     
         self.assertEqual( day.solve1(input), 0)

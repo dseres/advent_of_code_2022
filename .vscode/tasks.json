@@ -10,13 +10,12 @@
             "problemMatcher": [],
             "group": {
                 "kind": "build",
-                "isDefault": true
             }
         },
         {
-            "label": "run day11 test",
+            "label": "run day12 test",
             "type": "shell",
-            "command": "python src/day11/test_day.py",
+            "command": "python src/day12/test_day.py",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
