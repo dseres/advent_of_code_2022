@@ -26,10 +26,6 @@ def is_draft(a,b):
 def is_loosed(a,b):
     return not is_won(a,b) and not is_draft(a,b)
 
-def read_input_lines():
-    file = open("input/input2.txt")
-    return file.readlines()
-
 def parse_input(lines):
     guide = []
     for line in lines:

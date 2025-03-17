@@ -2,15 +2,11 @@ class Elf:
     def __init__(self, items) -> None:
         self.calories = sum(items)
 
-def read_input_lines():
-    file = open("input/input1.txt")
-    return file.readlines()
-
 def parse_input(lines):
     items = []
     elfs = []
     for line in lines:
-        if line == '\n':
+        if line == '':
             e = Elf(items)
             elfs.append(e)
             items = []

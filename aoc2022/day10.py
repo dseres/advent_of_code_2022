@@ -1,6 +1,6 @@
 class Cpu:
     def __init__(self):
-        self.x = 1;
+        self.x = 1
         self.cycle = 0
         self.x_of_cycle = [1]
 
@@ -39,8 +39,7 @@ def solve1(input):
 def solve2(input):
     cpu = Cpu()
     cpu.process_instructions(input)
-    return cpu.render()
+    return "\n" + cpu.render()
 
-def read_input():
-    with open("input/input10.txt") as file:
-        return file.read()
+def read_input(file):
+    return file.read()

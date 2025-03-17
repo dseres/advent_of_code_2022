@@ -59,6 +59,5 @@ def solve2(input):
     return len(fiber.visited)
 
 
-def read_input():
-    with open("input/input9.txt") as file:
-        return file.read()
+def read_input(file):
+    return file.read()

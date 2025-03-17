@@ -59,6 +59,11 @@ class Forest:
         return max
 
 
-def read_input():
-    with open("input/input8.txt") as file:
-        return file.read()
+def read_input(file):
+    return file.read()
+
+def solve1(input):
+    return Forest(input).solve1()
+
+def solve2(input):
+    return Forest(input).solve2()

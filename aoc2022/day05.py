@@ -1,6 +1,5 @@
 import re
 
-
 class Instruction:
     def __init__(self, count: int, stack_from: int, stack_to: int):
         self.count: int = count
@@ -19,15 +18,15 @@ class Instruction:
 
 class Stacks:
 
-    def __init__(self, input: str):
+    def __init__(self, lines: list[str]):
         self.stacks: list[list[str]] = []
         self.instructions: list[Instruction] = []
-        self.parse_input(input)
+        self.parse_input(lines)
 
-    def parse_input(self, input: str):
+    def parse_input(self, lines: list[str]):
         stack_pattern = re.compile('^(\\[[A-Z]\\]|   )( (\\[[A-Z]\\]|   ))*$')
         instruction_pattern = re.compile('^move (\\d+) from (\\d+) to (\\d+)$')
-        for line in input.splitlines():
+        for line in lines:
             if len(line) > 0:
                 if stack_pattern.match(line):
                     self.add_stack_values(line)
@@ -76,6 +75,9 @@ class Stacks:
             stack_to.append(s.pop())
 
 
-def read_input():
-    file = open("input/input5.txt")
-    return file.read()
+def solve1(lines):
+    return Stacks(lines).solve1()
+
+
+def solve2(lines):
+    return Stacks(lines).solve2()

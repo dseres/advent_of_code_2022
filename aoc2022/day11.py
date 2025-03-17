@@ -120,7 +120,5 @@ def solve2(input):
     return game.solve2()
 
 
-def read_input():
-
-    with open("input/input11.txt") as file:
-        return file.read()
+def read_input(file):
+    return file.read()

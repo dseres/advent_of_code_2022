@@ -1,10 +1,5 @@
-def solve1(input):
+def solve1(lines):
     return 0
 
-def solve2(input):
+def solve2(lines):
     return 0
-
-def read_input():
-
-    with open("input/input13.txt") as file:
-        return file.read()

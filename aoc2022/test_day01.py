@@ -1,5 +1,5 @@
 import unittest
-import aoc2022.day01 as day01
+import aoc2022.day01 as day
 
 
 
@@ -19,9 +19,9 @@ class TestDay1(unittest.TestCase):
 8000
 9000
 
-10000""".splitlines(keepends=True)
-        self.assertEqual( day01.solve1(test_input), 24000)
-        self.assertEqual( day01.solve2(test_input), 45000)
+10000""".splitlines()
+        self.assertEqual( day.solve1(test_input), 24000)
+        self.assertEqual( day.solve2(test_input), 45000)
 
 if __name__ == '__main__':
     unittest.main()

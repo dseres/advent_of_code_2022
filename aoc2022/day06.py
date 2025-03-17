@@ -1,5 +1,4 @@
-def read_input():
-    file = open("input/input6.txt")
+def read_input(file):
     return file.read()
 
 def solve1(input):

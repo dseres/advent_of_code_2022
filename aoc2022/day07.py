@@ -72,7 +72,14 @@ class Dir:
         return min
 
 
-def read_input():
-    with open("input/input7.txt") as file:
-        return file.read()
+def read_input(file):
+    return file.read()
 
+def solve1(input):
+    root= Dir.parse(input)
+    return root.solve1()
+
+def solve2(input):
+    root= Dir.parse(input)
+    root.solve1()
+    return root.solve2()

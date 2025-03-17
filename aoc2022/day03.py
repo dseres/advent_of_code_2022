@@ -1,7 +1,3 @@
-def read_input_lines():
-    file = open("input/input3.txt")
-    return file.read().splitlines()
-
 
 def get_priority(c):
     if ord('a') <= ord(c) <= ord('z'):

@@ -20,6 +20,5 @@ def solve1(input):
 def solve2(input):
     return 0
 
-def read_input():
-    with open("input/input12.txt") as file:
-        return file.read()
+def read_input(file):
+    return file.read()
